@@ -1,25 +1,44 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useEffect, useState } from "react";
+import "./App.css";
+import laugh_emoji from "./laughing.png";
 
-function App() {
+const App = () => {
+  const [setup, setSetup] = useState()
+  const [delivery, setDelivery] = useState()
+
+  const getJoke = async () => {
+    await fetch('https://v2.jokeapi.dev/joke/Programming?blacklistFlags=nsfw,religious,political,racist,sexist,explicit&type=twopart')
+      .then((data) => data.json())
+      .then((item) => {
+        if (item.type === 'twopart') {
+
+          // console.log(item);
+          // console.log(item.setup);
+          // console.log(item.delivery);
+
+          setSetup(item.setup);
+          setDelivery(item.delivery);
+        }
+      });
+  }
+  useEffect(() => {
+    getJoke()
+  }, [])
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <div className="card">
+        <img
+          src={laugh_emoji}
+          alt="laughing emoji"
+        />
+        <div className="jokeContainer">
+          <p>{setup}</p>
+          <p>{delivery}</p>
+        </div>
+        <button onClick={getJoke}>Get Random Joke</button>
+      </div>
     </div>
   );
-}
+};
 
 export default App;
