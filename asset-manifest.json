@@ -1,0 +1,14 @@
+{
+  "files": {
+    "main.css": "/React-Joke-App/static/css/main.5cad89bd.css",
+    "main.js": "/React-Joke-App/static/js/main.ebbebadb.js",
+    "static/media/laughing.png": "/React-Joke-App/static/media/laughing.01635c34bc0740667935.png",
+    "index.html": "/React-Joke-App/index.html",
+    "main.5cad89bd.css.map": "/React-Joke-App/static/css/main.5cad89bd.css.map",
+    "main.ebbebadb.js.map": "/React-Joke-App/static/js/main.ebbebadb.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.5cad89bd.css",
+    "static/js/main.ebbebadb.js"
+  ]
+}
